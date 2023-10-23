@@ -22,3 +22,7 @@ All commands are run from the root of the project, from a terminal:
 - [SolidJS](https://docs.solidjs.com/) avoid re-rendering with signals. If you're a React developer, probably you won't have any problem learning SolidJS.
 - [TailwindCSS](https://tailwindcss.com/) give you superpowers to build websites with a clean consistent UI and easy to integrate with any framework/library.
 - [NanoStores](https://github.com/nanostores/nanostores) a tiny state manager for any framework/library.
+
+## 👀 Checkout other projects
+
+- Feel free to checkout my [projects](https://github.com/leoalipazaga#%EF%B8%8F-projects)
