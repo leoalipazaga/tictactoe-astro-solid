@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Board from '@/solid/Board';
+import BoardDetails from '@/solid/BoardDetails';
+import BoardTurn from '@/solid/BoardTurn';
+import BoardReset from '@/solid/BoardReset';
+import Dialog from '@/solid/Dialog';
+---
+
+<Layout title="Tic Tac Toe">
+  <main
+    class="flex flex-col justify-center items-center gap-5 relative h-screen"
+  >
+    <section class="flex flex-col gap-3 w-[300px] sm:w-[320px]">
+      <nav class="flex gap-3 items-center">
+        <div class="w-1/3">
+          <span class="text-5xl font-bold text-teal-400">x</span>
+          <span class="text-5xl font-bold text-amber-400">o</span>
+        </div>
+        <BoardTurn client:load />
+        <div class="w-1/3 text-right">
+          <BoardReset client:load />
+        </div>
+      </nav>
+      <Board client:load />
+      <BoardDetails client:load />
+    </section>
+    <Dialog client:load />
+  </main>
+</Layout>
