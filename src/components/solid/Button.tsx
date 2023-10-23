@@ -18,16 +18,26 @@ export default function Button({
   onClick,
 }: TProps) {
   const classes = {
-    [Type.primary]: 'bg-amber-400 shadow-amber-600',
-    [Type.default]: 'bg-slate-400 shadow-slate-600',
-  } as Record<(typeof Type)[keyof typeof Type], string>;
+    pushable: {
+      [Type.primary]: 'bg-amber-600',
+      [Type.default]: 'bg-slate-600',
+    },
+    front: {
+      [Type.primary]: 'bg-amber-400',
+      [Type.default]: 'bg-slate-400',
+    },
+  };
 
   return (
     <button
-      class={`p-2 rounded-md uppercase text-neutral-900 text-sm font-bold shadow-[inset_0_-3px_0px_0px]  ${classes[type]}`}
+      class={`group rounded-md text-neutral-900 text-sm font-bold ${classes.pushable[type]}`}
       onClick={onClick}
     >
-      {children}
+      <span
+        class={`p-2 block rounded-md uppercase duration-200 transition-transform -translate-y-1 group-hover:-translate-y-[0.325rem] group-active:-translate-y-0.5 ${classes.front[type]}`}
+      >
+        {children}
+      </span>
     </button>
   );
 }
