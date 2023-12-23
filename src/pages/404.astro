@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title='404'>
+  <section class='h-screen flex justify-center items-center flex-col gap-10'>
+    <h1 class='text-9xl'>
+      <span class='text-teal-400'>4</span>
+      <span class='text-amber-300'>0</span>
+      <span class='text-teal-400'>4</span>
+    </h1>
+    <h2 class='text-white text-2xl'>Ops! There was an error.</h2>
+    <a
+      class={`group rounded-md text-neutral-900 text-sm font-bold bg-amber-600`}
+      href='/'
+    >
+      <span
+        class={`p-2 block rounded-md uppercase duration-200 transition-transform -translate-y-1 group-hover:-translate-y-[0.325rem] group-active:-translate-y-0.5 bg-amber-400`}
+      >
+        Go Home
+      </span>
+    </a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+export const prerender = false;
+
+import Layout from '@/layouts/Layout.astro';
+import Board from '@/solid/Board';
+import { Turn } from '@/consts';
+
+type Player = { turn: Turn.X; username: string };
+
+const gameId = Astro.params.id ?? '';
+const { username, turn } = await Astro.request
+  .formData()
+  .then((f) => Object.fromEntries(f.entries()) as Player);
+
+if (!username || !turn) {
+  Astro.redirect('/404');
+}
+---
+
+<Layout title='Tic Tac Toe'>
+  <main class='flex flex-col justify-center items-center gap-5 h-full'>
+    <Board
+      client:only='solid-js'
+      gameId={gameId}
+      username={username}
+      turn={turn}
+    />
+  </main>
+</Layout>

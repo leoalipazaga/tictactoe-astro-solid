@@ -6,7 +6,8 @@ const Type = {
 } as const;
 
 type TProps = {
-  class?: string;
+  className?: astroHTML.JSX.HTMLAttributes['class'];
+  other?: string;
   type?: 'default' | 'primary';
   children?: JSXElement | string;
   onClick?: () => void;
@@ -14,6 +15,7 @@ type TProps = {
 
 export default function Button({
   children,
+  className,
   type = Type.default,
   onClick,
 }: TProps) {
@@ -30,7 +32,7 @@ export default function Button({
 
   return (
     <button
-      class={`group rounded-md text-neutral-900 text-sm font-bold ${classes.pushable[type]}`}
+      class={`group rounded-md text-neutral-900 text-sm font-bold ${classes.pushable[type]} ${className}`}
       onClick={onClick}
     >
       <span

@@ -6,7 +6,7 @@ type TProps = {
   onClick: () => void;
 };
 
-export default function Board({ value, win = false, onClick }: TProps) {
+export default function BoardItem({ value, win = false, onClick }: TProps) {
   const classes = {
     [Turn.X]: 'text-amber-400',
     [Turn.O]: 'text-slate-400',

@@ -1,0 +1,47 @@
+---
+import Button from '@/components/solid/Button';
+import Layout from '@/layouts/Layout.astro';
+
+const turn = 'O';
+---
+
+<Layout title='Tic Tac Toe'>
+  <main class='flex flex-col items-center justify-center h-full'>
+    <form method='post' action='' class='w-60'>
+      <input type='hidden' name='turn' value={turn} />
+      <input
+        required
+        autocomplete='off'
+        placeholder='John Doe'
+        name='username'
+        class='w-full h-10 pl-3 mb-4 rounded bg-black text-white focus:outline-none'
+        type='text'
+      />
+      <input
+        required
+        autocomplete='off'
+        placeholder='Your Game ID'
+        name='gameId'
+        class='w-full h-10 pl-3 mb-4 rounded bg-black text-white focus:outline-none'
+        type='text'
+      />
+      <Button className='w-full' type='primary'>Join</Button>
+    </form>
+  </main>
+</Layout>
+
+<script is:inline>
+  const username = window.localStorage.getItem('username');
+  const usernameInput = document.querySelector('input[name="username"]');
+  const gameIdInput = document.querySelector('input[name="gameId"]');
+  const form = document.querySelector('form');
+
+  gameIdInput.addEventListener('input', ({ target }) => {
+    form.setAttribute('action', `game/${target.value}`);
+  });
+
+  usernameInput.value = username ?? '';
+  form.addEventListener('submit', () => {
+    window.localStorage.setItem('username', usernameInput?.value);
+  });
+</script>
