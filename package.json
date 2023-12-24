@@ -1,5 +1,5 @@
 {
-  "name": "tictactoe",
+  "name": "tictactoe-app",
   "type": "module",
   "version": "1.0.0",
   "engines": {

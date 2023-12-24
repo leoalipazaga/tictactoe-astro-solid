@@ -31,7 +31,7 @@ const turn = 'O';
 </Layout>
 
 <script is:inline>
-  const username = window.localStorage.getItem('username');
+  const username = localStorage.getItem('tictactoe_username');
   const usernameInput = document.querySelector('input[name="username"]');
   const gameIdInput = document.querySelector('input[name="gameId"]');
   const form = document.querySelector('form');
@@ -42,6 +42,6 @@ const turn = 'O';
 
   usernameInput.value = username ?? '';
   form.addEventListener('submit', () => {
-    window.localStorage.setItem('username', usernameInput?.value);
+    localStorage.setItem('tictactoe_username', usernameInput?.value);
   });
 </script>

@@ -25,12 +25,12 @@ const gameId = crypto.randomUUID();
 </Layout>
 
 <script defer type='module' crossorigin='anonymous'>
-  const username = window.localStorage.getItem('username');
+  const username = window.localStorage.getItem('tictactoe_username');
   const form = document.querySelector('form');
   const usernameInput = document.querySelector('input[name="username"]');
   usernameInput.value = username ?? '';
 
   form?.addEventListener('submit', () => {
-    window.localStorage.setItem('username', usernameInput.value);
+    window.localStorage.setItem('tictactoe_username', usernameInput.value);
   });
 </script>
