@@ -2,14 +2,12 @@
 import Button from '@/components/solid/Button';
 import Layout from '@/layouts/Layout.astro';
 const turn = 'X';
-
-const gameId = crypto.randomUUID();
 ---
 
 <Layout title='Tic Tac Toe'>
   <main class='flex flex-col items-center justify-center h-full'>
     <div class='w-60'>
-      <form method='post' action=`game/${gameId}`>
+      <form method='post'>
         <input type='hidden' name='turn' value={turn} />
         <input
           autocomplete='off'
@@ -25,12 +23,13 @@ const gameId = crypto.randomUUID();
 </Layout>
 
 <script defer type='module' crossorigin='anonymous'>
-  const username = window.localStorage.getItem('tictactoe_username');
+  const username = localStorage.getItem('tictactoe_username');
   const form = document.querySelector('form');
   const usernameInput = document.querySelector('input[name="username"]');
   usernameInput.value = username ?? '';
+  form.setAttribute('action', `game/${crypto.randomUUID()}`);
 
-  form?.addEventListener('submit', () => {
-    window.localStorage.setItem('tictactoe_username', usernameInput.value);
+  form?.addEventListener('submit', (e) => {
+    localStorage.setItem('tictactoe_username', usernameInput.value);
   });
 </script>
