@@ -27,7 +27,9 @@ jobs:
         run: pnpm lint
 
       - name: Build
-        run: pnpm build
+        run:
+          pnpm build
+          cp -r .netlify dist/
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
