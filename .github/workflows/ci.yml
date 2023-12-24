@@ -27,9 +27,10 @@ jobs:
         run: pnpm lint
 
       - name: Build
-        run: |
-          pnpm build
-          cp -r .netlify dist/
+        run: pnpm build
+      
+      - name: Copy netlify directory
+        run: cp -r .netlify dist/
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
