@@ -37,7 +37,7 @@ const turn = 'O';
   const form = document.querySelector('form');
 
   gameIdInput.addEventListener('input', ({ target }) => {
-    form.setAttribute('action', `game/${target.value}`);
+    form.setAttribute('action', `/game/${target.value}`);
   });
 
   usernameInput.value = username ?? '';
