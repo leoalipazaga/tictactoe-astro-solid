@@ -29,7 +29,7 @@ const turn = 'X';
   usernameInput.value = username ?? '';
   form.setAttribute('action', `game/${crypto.randomUUID()}`);
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', () => {
     localStorage.setItem('tictactoe_username', usernameInput.value);
   });
 </script>
