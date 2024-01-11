@@ -14,10 +14,9 @@ export default function BoardItem({ value, win = false, onClick }: TProps) {
 
   return (
     <div
-      class={`flex justify-center items-center w-30 h-30 font-bold text-2xl rounded-md bg-slate-800 shadow-slate-900 shadow-[inset_0_-3px_0px_0px] hover:cursor-pointer ${
+      className={`flex justify-center items-center w-30 h-30 font-bold text-2xl rounded-md bg-slate-800 shadow-slate-900 shadow-[inset_0_-3px_0px_0px] hover:cursor-pointer ${
         value ? classes[value] : ''
-      }`}
-      classList={{ 'bg-teal-400': win }}
+      } ${win ? 'bg-teal-400' : ''}`}
       onClick={() => value ?? onClick()}
     >
       {value}

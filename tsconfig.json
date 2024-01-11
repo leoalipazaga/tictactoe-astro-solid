@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/Users/leoalipazaga/Documents/workspace/tictactoe",
     "paths": {
       "@/*": [
         "src/*"
@@ -9,14 +9,14 @@
       "@/components": [
         "src/components/*"
       ],
-      "@/solid/*": [
-        "src/components/solid/*"
+      "@/react/*": [
+        "src/components/react/*"
       ],
       "@/layouts": [
         "src/layouts/*"
       ]
     },
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

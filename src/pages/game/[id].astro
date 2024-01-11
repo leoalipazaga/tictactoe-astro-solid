@@ -1,8 +1,7 @@
 ---
 export const prerender = false;
-
 import Layout from '@/layouts/Layout.astro';
-import Board from '@/solid/Board';
+import Board from '@/react/Board';
 import { Turn } from '@/consts';
 
 type Player = { turn: Turn.X; username: string };
@@ -20,7 +19,7 @@ if (!username || !turn) {
 <Layout title='Tic Tac Toe'>
   <main class='flex flex-col justify-center items-center gap-5 h-full'>
     <Board
-      client:only='solid-js'
+      client:only='react'
       gameId={gameId}
       username={username}
       turn={turn}

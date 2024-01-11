@@ -1,5 +1,3 @@
-import { type JSXElement } from 'solid-js';
-
 const Type = {
   default: 'default',
   primary: 'primary',
@@ -9,7 +7,7 @@ type TProps = {
   className?: astroHTML.JSX.HTMLAttributes['class'];
   other?: string;
   type?: 'default' | 'primary';
-  children?: JSXElement | string;
+  children?: React.ReactNode | string;
   onClick?: () => void;
 };
 
@@ -32,11 +30,11 @@ export default function Button({
 
   return (
     <button
-      class={`group rounded-md text-neutral-900 text-sm font-bold ${classes.pushable[type]} ${className}`}
+      className={`group rounded-md text-neutral-900 text-sm font-bold ${classes.pushable[type]} ${className}`}
       onClick={onClick}
     >
       <span
-        class={`p-2 block rounded-md uppercase duration-200 transition-transform -translate-y-1 group-hover:-translate-y-[0.325rem] group-active:-translate-y-0.5 ${classes.front[type]}`}
+        className={`p-2 block rounded-md uppercase duration-200 transition-transform -translate-y-1 group-hover:-translate-y-[0.325rem] group-active:-translate-y-0.5 ${classes.front[type]}`}
       >
         {children}
       </span>
