@@ -4,6 +4,8 @@ import BoardItem from '@/components/react/BoardItem';
 import { getSocket } from '@/services/socket';
 import Button from './Button';
 import Error from './Error';
+import BoardShareButton from './Board/BoardShareButton';
+import BoardHeader from './Board/BoardHeader';
 
 type Props = {
   gameId: string;
@@ -76,14 +78,14 @@ export default function Board(props: Props) {
   const [ties, setTies] = useState(0);
   const [turn, setTurn] = useState(Turn.X);
   const [error, setError] = useState<Error | null>(null);
+  const showDialog =
+    isWinner(board, Turn.X) || isWinner(board, Turn.O) || isBoardTied(board);
   const socket = getSocket(import.meta.env.PUBLIC_WEB_SOCKET_URL, {
     auth: props,
   });
-  const [shareText, setShareText] = useState('Share Link');
-  const showDialog =
-    isWinner(board, Turn.X) || isWinner(board, Turn.O) || isBoardTied(board);
 
   socket.emit('join game');
+  socket.on('joined', (username) => console.info(username));
   socket.on('get:board:success', setBoard);
   socket.on('get:turn:success', setTurn);
   socket.on('connect_error', setError);
@@ -95,12 +97,6 @@ export default function Board(props: Props) {
   const onQuit = () => {
     resetBoard();
     setTies(0);
-  };
-
-  const onShare = () => {
-    navigator.clipboard.writeText(props.gameId ?? '');
-    setShareText('Copied!');
-    setTimeout(setShareText, 2000, 'Share Link');
   };
 
   const text = useMemo(() => {
@@ -130,28 +126,7 @@ export default function Board(props: Props) {
 
   return (
     <section className='flex flex-col gap-3 w-[300px] sm:w-[320px]'>
-      <nav className='flex gap-3 items-center'>
-        <div className='w-1/3'>
-          <span className='text-5xl font-bold text-teal-400'>x</span>
-          <span className='text-5xl font-bold text-amber-400'>o</span>
-        </div>
-        {/* <BoardTurn> */}
-        <span
-          className={`w-1/3 p-3 rounded-md text-[0.6rem] text-center inset-y-2 font-bold uppercase ${
-            turn !== props.turn
-              ? 'bg-slate-800 text-slate-400'
-              : turn === props.turn
-              ? 'bg-amber-400 text-black'
-              : ''
-          }`}
-        >
-          {turn === props.turn ? 'Your turn' : `${turn} Turn`}
-        </span>
-        {/* <BoardTurn  /> */}
-        <div className='w-1/3 text-right'>
-          <Button onClick={resetBoard}>Reset</Button>
-        </div>
-      </nav>
+      <BoardHeader onReset={resetBoard} me={props.turn} currentTurn={turn} />
       <div className='w-full h-[300px] sm:h-[320px] grid gap-3 grid-cols-3 grid-rows-3'>
         {board.map((item, index) => (
           <BoardItem
@@ -192,26 +167,7 @@ export default function Board(props: Props) {
         </div>
       </div>
       <div className='flex justify-center items-center mt-10'>
-        <Button className='w-fit' type='primary' onClick={onShare}>
-          <div className='flex gap-2'>
-            <span>{shareText}</span>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='18'
-              height='18'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              className='lucide lucide-copy text-black'
-            >
-              <rect width='14' height='14' x='8' y='8' rx='2' ry='2'></rect>
-              <path d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'></path>
-            </svg>
-          </div>
-        </Button>
+        <BoardShareButton gameId={props.gameId} />
       </div>
       {/* DIALOG */}
       {showDialog && (

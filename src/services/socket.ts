@@ -4,7 +4,7 @@ let socket: Socket | null = null;
 
 export function getSocket(...params: Parameters<typeof io>) {
   if (!socket) {
-    socket = io(params[0], params[1]);
+    socket = io(...params);
     return socket;
   }
 
