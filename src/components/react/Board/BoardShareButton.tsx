@@ -8,13 +8,13 @@ type Props = {
 const i18n = {
   shareLink: 'Share Link',
   copiedLink: 'Copied!',
-} as const;
+};
 
 const BoardShareButton = ({ gameId }: Props) => {
   const [shareText, setShareText] = useState(i18n.shareLink);
   const onShare = () => {
     navigator.clipboard.writeText(gameId ?? '');
-    setShareText(i18n.shareLink);
+    setShareText(i18n.copiedLink);
     setTimeout(setShareText, 2000, i18n.shareLink);
   };
 
