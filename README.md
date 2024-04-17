@@ -1,20 +1,22 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/348f5996-0ceb-4cb3-b2c0-544534788dda/deploy-status)](https://app.netlify.com/sites/tictactoe-astro/deploys)
+
 # Tic Tac Toe
 
 A classic Tic Tac Toe (noughts and crosses) game build out with 🔥
 
 ## 🚀 Inspitation
 
-Feel free to check out [this challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v) and build out your own Tic Tac Toe game with your favorite framework/library. 
+Feel free to check out [this challenge](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v) and build out your own Tic Tac Toe game with your favorite framework/library.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                    | Action                                           |
-| :------------------------  | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm run build`           | Build your production site to `./dist/`          |
+| Command          | Action                                      |
+| :--------------- | :------------------------------------------ |
+| `pnpm install`   | Installs dependencies                       |
+| `pnpm run dev`   | Starts local dev server at `localhost:4321` |
+| `pnpm run build` | Build your production site to `./dist/`     |
 
 ## ⚡️ Tech Stack
 
