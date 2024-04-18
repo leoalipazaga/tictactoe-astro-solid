@@ -21,9 +21,9 @@ All commands are run from the root of the project, from a terminal:
 ## ⚡️ Tech Stack
 
 - [Astrojs](https://astro.build/) is an awesome framework to build web apps without any js by default.
-- [SolidJS](https://docs.solidjs.com/) avoid re-rendering with signals. If you're a React developer, probably you won't have any problem learning SolidJS.
+- [React](https://docs.solidjs.com/) build web interfaces with pieces called Component.
 - [TailwindCSS](https://tailwindcss.com/) give you superpowers to build websites with a clean consistent UI and easy to integrate with any framework/library.
-- [SocketIO](https://socket.io/) bidirectional and low-latency communication for every platform
+- [Liveblocks](https://liveblocks.io/) provide developers with a complete toolkit to embed performant collaboration features.
 
 ## 👀 Checkout other projects
 
