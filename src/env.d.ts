@@ -1,6 +1,6 @@
 /// <reference types="astro/client" />
 interface ImportMetaEnv {
-  readonly PUBLIC_WEB_SOCKET_URL: string;
+  readonly LIVEBLOCKS_API_KEY: string;
 }
 
 interface ImportMeta {

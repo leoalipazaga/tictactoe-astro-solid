@@ -2,7 +2,7 @@ import { Turn } from '@/consts';
 
 type TProps = {
   win?: boolean;
-  value: Turn.O | Turn.X | undefined;
+  value: Turn | undefined;
   onClick: () => void;
 };
 
